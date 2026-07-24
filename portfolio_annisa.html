@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annisasaskia Widyaningrum – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--pink:#FF6B9D;--purple:#7C3AED;--blue:#3B82F6;--cyan:#06B6D4;--yellow:#FBBF24;--green:#10B981;--orange:#F97316;--bg:#0F0F1A;--card:#1A1A2E;--text:#F1F5F9;--muted:#94A3B8}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,15,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-logo{font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--pink),var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .3s}
+    .nav-links a:hover{color:var(--pink)}
+    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:float 8s ease-in-out infinite}
+    .b1{width:500px;height:500px;background:var(--purple);top:-100px;left:-150px}
+    .b2{width:400px;height:400px;background:var(--pink);bottom:-100px;right:-100px;animation-delay:-4s}
+    .b3{width:300px;height:300px;background:var(--cyan);top:40%;left:45%;animation-delay:-2s}
+    @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+    .hero-inner{position:relative;z-index:1;display:flex;align-items:center;gap:5rem;max-width:1100px;width:100%;flex-wrap:wrap;justify-content:center}
+    .photo-wrap{position:relative;flex-shrink:0}
+    .photo-ring{width:240px;height:240px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple),var(--cyan),var(--yellow));padding:4px;animation:hue 8s linear infinite}
+    @keyframes hue{to{filter:hue-rotate(360deg)}}
+    .photo-inner{width:232px;height:232px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted);font-size:.8rem;text-align:center;padding:1rem;overflow:hidden}
+    .photo-inner img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .photo-inner i{font-size:3rem;color:var(--purple)}
+    .badge{position:absolute;font-size:.7rem;font-weight:700;padding:.35rem .8rem;border-radius:20px;animation:bob 3s ease-in-out infinite;white-space:nowrap}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .bavail{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#000;box-shadow:0 4px 15px rgba(251,191,36,.4);bottom:10px;right:-10px}
+    .bexp{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;top:10px;left:-20px;animation-delay:-1.5s}
+    .hero-text{max-width:580px}
+    .greeting{color:var(--cyan);font-size:.95rem;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+    .hero-name{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.1;margin:.5rem 0 1rem;background:linear-gradient(135deg,#fff 30%,var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-role{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .role-tag{background:rgba(124,58,237,.25);color:var(--purple);border:1px solid rgba(124,58,237,.4);padding:.2rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600}
+    .role-tag.erp{background:rgba(6,182,212,.15);color:var(--cyan);border-color:rgba(6,182,212,.35)}
+    .hero-bio{color:var(--muted);line-height:1.8;margin-bottom:2rem;font-size:.93rem}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn{padding:.75rem 2rem;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s}
+    .btn-p{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;box-shadow:0 8px 25px rgba(255,107,157,.35)}
+    .btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,157,.5)}
+    .btn-o{background:transparent;color:var(--text);border:2px solid rgba(255,255,255,.15)}
+    .btn-o:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+    .socials{display:flex;gap:1rem;margin-top:2rem}
+    .soc{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--muted);text-decoration:none;font-size:1.1rem;transition:all .3s}
+    .soc:hover{background:var(--pink);color:#fff;border-color:var(--pink);transform:translateY(-3px)}
+    #stats{padding:3rem 2rem}
+    .stats-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem}
+    .stat-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2rem 1.5rem;text-align:center;transition:transform .3s}
+    .stat-card:hover{transform:translateY(-5px)}
+    .stat-num{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .stat-label{color:var(--muted);font-size:.82rem;margin-top:.3rem}
+    section{padding:6rem 2rem;position:relative;z-index:1}
+    .container{max-width:1100px;margin:0 auto}
+    .sec-head{text-align:center;margin-bottom:4rem}
+    .sec-tag{display:inline-block;background:rgba(124,58,237,.2);color:var(--purple);border:1px solid rgba(124,58,237,.35);padding:.3rem 1rem;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+    .sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;background:linear-gradient(135deg,#fff,var(--muted));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .sec-line{width:60px;height:4px;border-radius:4px;margin:1rem auto 0;background:linear-gradient(90deg,var(--pink),var(--purple))}
+    #skills{background:rgba(255,255,255,.02)}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+    .sg{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2rem}
+    .sg-title{display:flex;align-items:center;gap:.75rem;font-weight:700;font-size:1rem;margin-bottom:1.5rem}
+    .ski{margin-bottom:1.2rem}
+    .ski-top{display:flex;justify-content:space-between;margin-bottom:.4rem;font-size:.85rem}
+    .ski-name{font-weight:600}.ski-pct{color:var(--muted)}
+    .ski-bar{height:8px;background:rgba(255,255,255,.07);border-radius:10px;overflow:hidden}
+    .ski-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width 1.2s ease}
+    .ski-fill.c{background:linear-gradient(90deg,var(--cyan),var(--blue))}
+    .ski-fill.g{background:linear-gradient(90deg,var(--green),var(--cyan))}
+    .ski-fill.o{background:linear-gradient(90deg,var(--orange),var(--yellow))}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+    .tt{padding:.35rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600;border:1px solid;transition:all .3s;cursor:default}
+    .tt:hover{transform:translateY(-2px)}
+    .timeline{position:relative;max-width:800px;margin:0 auto}
+    .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--pink),var(--purple),var(--cyan));border-radius:2px}
+    .tl-item{padding-left:60px;margin-bottom:3rem;position:relative}
+    .tl-dot{position:absolute;left:9px;top:5px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));border:3px solid var(--bg);display:flex;align-items:center;justify-content:center}
+    .tl-dot i{font-size:.55rem;color:#fff}
+    .tl-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:1.8rem;transition:transform .3s,border-color .3s}
+    .tl-card:hover{transform:translateX(6px);border-color:rgba(255,107,157,.3)}
+    .tl-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+    .tl-co{font-weight:700;font-size:1.05rem}
+    .tl-period{background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.3);padding:.2rem .8rem;border-radius:20px;font-size:.75rem;font-weight:600}
+    .tl-role{color:var(--pink);font-weight:600;font-size:.9rem;margin-bottom:.75rem}
+    .tl-desc{color:var(--muted);font-size:.88rem;line-height:1.7;padding-left:1.2rem}
+    .tl-desc li{margin-bottom:.3rem}
+    /* PROJECT TABS */
+    #projects{background:rgba(255,255,255,.02)}
+    .proj-tabs{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+    .proj-tab{padding:.6rem 1.6rem;border-radius:20px;font-size:.88rem;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.12);background:transparent;color:var(--muted);transition:all .3s;font-family:'Poppins',sans-serif}
+    .proj-tab.active,.proj-tab:hover{color:#fff}
+    .proj-tab[data-tab="web"].active{background:linear-gradient(135deg,var(--pink),var(--purple));border-color:transparent}
+    .proj-tab[data-tab="erp"].active{background:linear-gradient(135deg,var(--cyan),var(--blue));border-color:transparent}
+    .proj-tab[data-tab="web"]:hover:not(.active){border-color:var(--pink);color:var(--pink)}
+    .proj-tab[data-tab="erp"]:hover:not(.active){border-color:var(--cyan);color:var(--cyan)}
+    .proj-pane{display:none}
+    .proj-pane.active{display:block}
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+    .proj-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:24px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .proj-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .proj-thumb{height:180px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+    .proj-body{padding:1.5rem}
+    .proj-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+    .proj-tag{font-size:.72rem;font-weight:600;padding:.2rem .7rem;border-radius:20px;background:rgba(124,58,237,.2);color:var(--purple);border:1px solid rgba(124,58,237,.3)}
+    .proj-tag.erp-tag{background:rgba(6,182,212,.15);color:var(--cyan);border-color:rgba(6,182,212,.3)}
+    .proj-title{font-weight:700;font-size:1.05rem;margin-bottom:.5rem}
+    .proj-desc{color:var(--muted);font-size:.84rem;line-height:1.7;margin-bottom:1.2rem}
+    .proj-links{display:flex;gap:.75rem}
+    .proj-link{padding:.45rem 1.1rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:all .3s}
+    .proj-link.demo{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff}
+    .proj-link.demo.erp{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+    .proj-link.code{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid rgba(255,255,255,.1)}
+    .proj-link:hover{transform:translateY(-2px)}
+    /* ERP info banner */
+    .erp-note{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:16px;padding:1.2rem 1.5rem;margin-bottom:2rem;color:var(--cyan);font-size:.88rem;display:flex;align-items:center;gap:.8rem}
+    #contact{text-align:center}
+    .cbox{max-width:700px;margin:0 auto;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:3.5rem 2.5rem;position:relative;overflow:hidden}
+    .cbox::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:var(--purple);opacity:.15;filter:blur(60px);top:-80px;right:-80px;pointer-events:none}
+    .cbox p{color:var(--muted);margin:1rem 0 2.5rem;line-height:1.8}
+    .cmethods{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+    .cmethod{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.6rem 1.2rem;font-size:.85rem;color:var(--muted);text-decoration:none;transition:all .3s}
+    .cmethod i{color:var(--pink)}
+    .cmethod:hover{border-color:var(--pink);color:var(--text);transform:translateY(-2px)}
+    footer{text-align:center;padding:2rem;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:.85rem}
+    footer span{background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:768px){.photo-ring{width:180px;height:180px}.photo-inner{width:172px;height:172px}.hero-inner{gap:2rem}}
+    @media(max-width:480px){.nav-links{display:none}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">&lt;Annisa.dev /&gt;</div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-inner">
+    <div class="photo-wrap">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="PassFoto.jpeg" alt="Annisasaskia"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div style="display:none;flex-direction:column;align-items:center;gap:.5rem">
+            <i class="fas fa-user-circle"></i><span>Add your photo<br/>here</span>
+          </div>
+        </div>
+      </div>
+      <span class="badge bavail">✨ Open to Work</span>
+      <span class="badge bexp">Semester 6</span>
+    </div>
+    <div class="hero-text">
+      <p class="greeting">👋 Hello, I am</p>
+      <h1 class="hero-name">Annisasaskia Widyaningrum</h1>
+      <div class="hero-role">
+        <span class="role-tag erp">Functional ERP Consultant</span>
+        <span class="role-tag erp">Epicor Kinetic</span>
+        <span class="role-tag">Web Developer</span>
+        <span class="role-tag">IT Support</span>
+      </div>
+      <p class="hero-bio">An undergraduate MIS student at President University specializing in ERP. Experienced in full-stack web & mobile development, database management, business process analysis, and Epicor Kinetic implementation. Actively seeking internship opportunities to contribute in a professional environment.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-p"><i class="fas fa-rocket"></i> View Projects</a>
+        <a href="#contact" class="btn btn-o"><i class="fas fa-paper-plane"></i> Contact Me</a>
+      </div>
+      <div class="socials">
+        <a href="#" class="soc" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/annisasaskia-widyaningrum" class="soc" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:annisasaskiaw@gmail.com" class="soc" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/6282134690705" class="soc" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid reveal">
+    <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years of Coding</div></div>
+    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Projects Completed</div></div>
+    <div class="stat-card"><div class="stat-num">6mo</div><div class="stat-label">Internship Experience</div></div>
+    <div class="stat-card"><div class="stat-num">🏅</div><div class="stat-label">Best Graduate SMK</div></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag">⚡ Expertise</div>
+      <h2 class="sec-title">Tech Stack & Skills</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="sg reveal">
+        <div class="sg-title" style="color:var(--cyan)"><i class="fas fa-cogs"></i> ERP & Business Systems</div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Epicor Kinetic ERP</span><span class="ski-pct">85%</span></div><div class="ski-bar"><div class="ski-fill c" data-w="85"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Procurement Module</span><span class="ski-pct">82%</span></div><div class="ski-bar"><div class="ski-fill c" data-w="82"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Production Module</span><span class="ski-pct">80%</span></div><div class="ski-bar"><div class="ski-fill c" data-w="80"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Sales Order Module</span><span class="ski-pct">80%</span></div><div class="ski-bar"><div class="ski-fill c" data-w="80"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Business Process Analysis</span><span class="ski-pct">78%</span></div><div class="ski-bar"><div class="ski-fill c" data-w="78"></div></div></div>
+        <div class="tech-tags">
+          <span class="tt" style="color:var(--cyan);border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.1)">Epicor Kinetic</span>
+          <span class="tt" style="color:var(--blue);border-color:rgba(59,130,246,.3);background:rgba(59,130,246,.1)">ERP Implementation</span>
+          <span class="tt" style="color:var(--green);border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.1)">BPA</span>
+        </div>
+      </div>
+      <div class="sg reveal">
+        <div class="sg-title" style="color:var(--pink)"><i class="fas fa-code"></i> Programming & Web</div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">PHP (Laravel)</span><span class="ski-pct">80%</span></div><div class="ski-bar"><div class="ski-fill" data-w="80"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">JavaScript</span><span class="ski-pct">78%</span></div><div class="ski-bar"><div class="ski-fill" data-w="78"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">HTML / CSS</span><span class="ski-pct">85%</span></div><div class="ski-bar"><div class="ski-fill" data-w="85"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Kotlin (Android)</span><span class="ski-pct">70%</span></div><div class="ski-bar"><div class="ski-fill" data-w="70"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">MySQL</span><span class="ski-pct">80%</span></div><div class="ski-bar"><div class="ski-fill" data-w="80"></div></div></div>
+        <div class="tech-tags">
+          <span class="tt" style="color:var(--pink);border-color:rgba(255,107,157,.3);background:rgba(255,107,157,.1)">Laravel</span>
+          <span class="tt" style="color:var(--purple);border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.1)">JavaScript</span>
+          <span class="tt" style="color:var(--yellow);border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.1)">MySQL</span>
+        </div>
+      </div>
+      <div class="sg reveal">
+        <div class="sg-title" style="color:var(--green)"><i class="fas fa-network-wired"></i> Networking & Tools</div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">LAN Configuration</span><span class="ski-pct">88%</span></div><div class="ski-bar"><div class="ski-fill g" data-w="88"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Hardware/Software Troubleshoot</span><span class="ski-pct">85%</span></div><div class="ski-bar"><div class="ski-fill g" data-w="85"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">Microsoft Excel</span><span class="ski-pct">82%</span></div><div class="ski-bar"><div class="ski-fill g" data-w="82"></div></div></div>
+        <div class="ski"><div class="ski-top"><span class="ski-name">UTP Cabling & Testing</span><span class="ski-pct">90%</span></div><div class="ski-bar"><div class="ski-fill g" data-w="90"></div></div></div>
+        <div class="tech-tags">
+          <span class="tt" style="color:var(--green);border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.1)">Routers & Switches</span>
+          <span class="tt" style="color:var(--orange);border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.1)">IT Support</span>
+          <span class="tt" style="color:var(--yellow);border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.1)">MS Excel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag">💼 Career</div>
+      <h2 class="sec-title">Professional Experience</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"><i class="fas fa-star"></i></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <span class="tl-co">🏢 Vall Computer – Cikarang</span>
+            <span class="tl-period">Jan 2023 – Jun 2023</span>
+          </div>
+          <div class="tl-role">IT Support & Network Technician Intern</div>
+          <ul class="tl-desc">
+            <li>Installed, configured, and maintained operating systems, software drivers, and LANs including routers, switches, and Wi-Fi access points.</li>
+            <li>Performed physical network infrastructure setups, including UTP cable installation, routing, and connectivity testing.</li>
+            <li>Assisted users with hardware and software troubleshooting for computers and printers, documenting activities in work logs.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><i class="fas fa-circle" style="font-size:.4rem"></i></div>
+        <div class="tl-card" style="border-color:rgba(6,182,212,.2)">
+          <div class="tl-top">
+            <span class="tl-co">🎓 President University</span>
+            <span class="tl-period">Aug 2025 – May 2026</span>
+          </div>
+          <div class="tl-role" style="color:var(--cyan)">ERP Consultant Simulation – Functional ERP Consultant</div>
+          <ul class="tl-desc">
+            <li>Acted as a functional consultant to analyze, map, and simulate core business workflows within the Epicor Kinetic ERP platform.</li>
+            <li>Successfully mapped and executed end-to-end business cycles across Procurement (purchasing/inventory), Production (manufacturing execution), and Sales Order modules.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag">🚀 Portfolio</div>
+      <h2 class="sec-title">Featured Projects</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="proj-tabs reveal">
+      <button class="proj-tab active" data-tab="web"><i class="fas fa-code"></i> Web & Mobile Dev</button>
+      <button class="proj-tab" data-tab="erp"><i class="fas fa-cogs"></i> ERP Consultant</button>
+    </div>
+
+    <!-- WEB PROJECTS -->
+    <div class="proj-pane active" id="pane-web">
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#667eea,#764ba2)">📅</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">Mobile App</span><span class="proj-tag">Kotlin</span><span class="proj-tag">Academic</span></div>
+            <div class="proj-title">ADATRACK – Habit Tracker App</div>
+            <p class="proj-desc">A mobile application featuring calendar tracking, reminders, time scheduling, and progress monitoring to support habit consistency.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="proj-link code"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🎒</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">Web</span><span class="proj-tag">PHP/Laravel</span><span class="proj-tag">Academic</span></div>
+            <div class="proj-title">Interactive Learning Website for Children</div>
+            <p class="proj-desc">An educational website with quizzes, interactive matching games, audio, and visuals to teach children letters, numbers, colors, and animals.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="proj-link code"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">🐟</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">Web</span><span class="proj-tag">Backend</span><span class="proj-tag">Community</span></div>
+            <div class="proj-title">AQUANOMIC – Fishermen E-Marketplace</div>
+            <p class="proj-desc">Back-end system for an e-commerce web platform designed to streamline online fish trading and connect local fishermen directly with buyers.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="proj-link code"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#f7971e,#ffd200)">🌸</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">Web</span><span class="proj-tag">Full-Stack</span><span class="proj-tag">Academic</span></div>
+            <div class="proj-title">Online Flower Shop – E-Commerce</div>
+            <p class="proj-desc">An e-commerce website featuring product listings, shopping cart flows, and basic checkout functionality built with full-stack web architecture.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="proj-link code"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERP PROJECTS -->
+    <div class="proj-pane" id="pane-erp">
+      <div class="erp-note reveal">
+        <i class="fas fa-info-circle" style="font-size:1.2rem;flex-shrink:0"></i>
+        <span>These projects were carried out as part of an <strong>ERP Consultant Simulation</strong> at President University, using the <strong>Epicor Kinetic</strong> platform to map real-world business workflows end-to-end.</span>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364)">🏭</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag erp-tag">Epicor Kinetic</span><span class="proj-tag erp-tag">Procurement</span><span class="proj-tag erp-tag">Simulation</span></div>
+            <div class="proj-title">Procurement & Inventory Cycle</div>
+            <p class="proj-desc">Mapped and executed end-to-end procurement workflows including purchase requisition, PO creation, goods receipt, and inventory management within Epicor Kinetic.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo erp"><i class="fas fa-file-alt"></i> Case Study</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#134e5e,#71b280)">⚙️</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag erp-tag">Epicor Kinetic</span><span class="proj-tag erp-tag">Production</span><span class="proj-tag erp-tag">Simulation</span></div>
+            <div class="proj-title">Production & Manufacturing Execution</div>
+            <p class="proj-desc">Simulated production module flows including job creation, material issue, shop floor tracking, and manufacturing execution to reflect real factory operations.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo erp"><i class="fas fa-file-alt"></i> Case Study</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)">📦</div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag erp-tag">Epicor Kinetic</span><span class="proj-tag erp-tag">Sales Order</span><span class="proj-tag erp-tag">Simulation</span></div>
+            <div class="proj-title">Sales Order & Fulfillment Cycle</div>
+            <p class="proj-desc">Executed end-to-end sales order cycles including order entry, picking, packing, shipment, and invoicing within the Epicor Kinetic Sales Order module.</p>
+            <div class="proj-links">
+              <a href="#" class="proj-link demo erp"><i class="fas fa-file-alt"></i> Case Study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag">📬 Contact</div>
+      <h2 class="sec-title">Let's Collaborate!</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cbox reveal">
+      <p>Have an interesting project or internship opportunity? I'm always open to new discussions and collaborations. Feel free to reach out!</p>
+      <div class="cmethods">
+        <a href="mailto:annisasaskiaw@gmail.com" class="cmethod"><i class="fas fa-envelope"></i> annisasaskiaw@gmail.com</a>
+        <a href="https://wa.me/6282134690705" class="cmethod"><i class="fab fa-whatsapp"></i> +62 821-3469-0705</a>
+        <a href="https://linkedin.com/in/annisasaskia-widyaningrum" class="cmethod"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <a href="mailto:annisasaskiaw@gmail.com" class="btn btn-p" style="font-size:1rem;padding:.9rem 2.5rem;">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><p>Built with <span>❤️ & code</span> by <span>Annisasaskia Widyaningrum</span> · 2025</p></footer>
+
+<script>
+  // Scroll Reveal
+  const ro = new IntersectionObserver((es)=>{ es.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); ro.unobserve(e.target); } }); },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(r=>ro.observe(r));
+  // Skill bars
+  document.querySelectorAll('.ski-fill').forEach(f=>{ f.style.width='0'; });
+  const so = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.ski-fill').forEach(f=>{ f.style.width=f.dataset.w+'%'; }); so.unobserve(e.target); } }); },{threshold:.3});
+  document.querySelectorAll('.sg').forEach(g=>so.observe(g));
+  // Active nav
+  window.addEventListener('scroll',()=>{
+    let cur=''; document.querySelectorAll('section[id]').forEach(s=>{ if(window.scrollY>=s.offsetTop-100) cur=s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a=>{ a.style.color=a.getAttribute('href')==='#'+cur?'var(--pink)':''; });
+  });
+  // Project Tabs
+  document.querySelectorAll('.proj-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.proj-pane').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('pane-' + tab.dataset.tab).classList.add('active');
+      // re-trigger reveals in newly shown pane
+      document.querySelectorAll('#pane-' + tab.dataset.tab + ' .reveal').forEach(r=>{
+        r.classList.remove('visible');
+        setTimeout(()=>r.classList.add('visible'),50);
+      });
+    });
+  });
+</script>
+</body>
+</html>
